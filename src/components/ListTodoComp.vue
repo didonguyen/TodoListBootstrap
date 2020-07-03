@@ -1,18 +1,27 @@
 <template>
-  <div class="wrapper-todo-list">
-      <ul class="todo-list">
-          <li 
+      <div class="grid container">
+          <div class="item" 
             v-for="(item, index) in todoList"
-            v-bind:key="index"
-          >
-            <p>{{ item.todo }}</p>
-            <div class="button">
-                <button class="update-button" v-on:click="handleClickUpdate(index)">Update</button>
-                <button class="delete-button" v-on:click="$emit('deleteTodo', index)">Delete</button>
-            </div> 
-          </li>
-      </ul>
-  </div>
+            v-bind:key="index">
+              <b-card
+                    title=""
+                    img-src="https://picsum.photos/600/300/?image=25"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 20rem; margin-right: 10px"
+                    class="mb-2"
+                    
+                >
+                <b-card-text>
+                {{ item.todo }}
+                </b-card-text>
+
+                <b-button variant="primary" v-on:click="handleClickUpdate(index)">Update</b-button>
+                <b-button variant="danger" v-on:click="$emit('deleteTodo', index)">Delete</b-button>
+                </b-card>
+          </div>
+        </div>
 </template>
 
 <script>
@@ -46,84 +55,15 @@ export default {
 </script>
 
 <style>
-.wrapper-todo-list{
-    width: 90%;
-    margin: 5px 5%;
-}
-.todo-list{
-    
-    padding: none;
-    margin-left: 10px 10px;
-    width: 100%;
-    list-style-type: none;
-    
-}
-.todo-list li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border: 1px solid #000;
-    border-radius: 4px;
-    padding: 5px 8px;
-    margin-bottom: 5px;
-    background-color: rgb(243, 245, 244);
-    font-size: 18px;
-}
-.update-button{
-    border: 1px solid rgb(57, 158, 189);
-    width: 80px;
-    height: 45px;
-    background-color: rgb(203, 214, 228);
-    color: rgb(5, 5, 5);
-    border-radius: 4px;
-    font-size: 18px;
-    transition: all .3s ease;
-}
-.update-button:hover{
-    border: 1px solid rgb(57, 158, 189);
-    background-color: #333;
-    color: #fff;
-}
-.delete-button{
-    border: 1px solid rgb(175, 175, 209);
-    width: 80px;
-    height: 45px;
-    background-color: rgb(231, 203, 202);
-    color: rgb(5, 5, 5);
-    border-radius: 4px;
-    font-size: 18px;
-    transition: all .3s ease;
-}
-
-.delete-button:hover{
-    border: 1px solid rgb(57, 158, 189);
-    background-color: #333;
-    color: #fff;
-}
-
-@media only screen and (max-width: 480px){
-    .wrapper-todo-list{
-        width: 100%;
-        margin: 5px 5%;
+    .grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     }
-    .todo-list{  
-        padding: none;
-        margin-left: 10px 10px;
-        width: 100%;
-        list-style-type: none;
-    }
-.todo-list li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border: 1px solid #000;
-    border-radius: 4px;
-    padding: 5px 8px;
-    margin-bottom: 5px;
-    background-color: rgb(243, 245, 244);
-    font-size: 22px;
+
+@media (min-width: 1200px){
+    .grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     }
 }
 </style>

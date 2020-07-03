@@ -1,8 +1,8 @@
 <template>
   <div class="add-new">
-      <h3>Add a new todo: </h3>
-      <input v-model="todo" type="text" placeholder="Do Something..." id="add-new">
-      <button class="add-button" v-on:click="handleAddNew">Add</button>
+    <h4>Add a new todo</h4>
+    <input v-model="todo" type="text" placeholder="Do Something..." id="add-new">
+    <b-button variant="success" v-on:click="handleAddNew" class="add-button">Add</b-button>
     </div>
 </template>
 
@@ -28,25 +28,18 @@ export default {
 </script>
 
 <style>
-.add-button{
-    border: 1px solid rgb(72, 197, 93);
-    width: 80px;
-    height: 35px;
-    background-color: rgb(212, 235, 212);
-    color: rgb(5, 5, 5);
-    border-radius: 4px;
-    font-size: 18px;
-    transition: all .3s ease;
-}
-.add-button:hover{
-    background-color: #333;
-    color: #fff;
-}
+
+
+
 .add-new{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: left;
     align-items: center;
+    } 
+.add-button{
+    margin-top: 15px;
 }
 .add-new input{
     height: 30px;
@@ -55,16 +48,17 @@ export default {
     padding: 0 5px;
     font-size: 18px;
 }
-@media(max-width: 480px){
+@media (min-width: 1200px){
     .add-new{
+    height: 100px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: left;
     align-items: center;
-    } 
-    .add-button{
-        margin-top: 15px;
     }
+    .add-button{
+    margin-bottom: 15px;
+}
 }
 </style>

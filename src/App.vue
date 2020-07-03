@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <h1>Todo List</h1>
     
     <add-comp v-bind:todoList="todoList"/>
@@ -17,8 +17,8 @@
       v-bind:popupUpdate="popupUpdate"
       v-on:UpdateTodoList="UpdateTodoList"
     />
-
-    <button v-on:click="SaveFile" class="save-button">Save</button>
+    <b-button variant="success" v-on:click="SaveFile">Save</b-button>
+    
   </div>
 </template>
 
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style>
-#app {
+#app1 {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -88,20 +88,17 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  overflow: none;
+}
 
-.save-button{
-  border: 1px solid rgb(72, 197, 93);
-  width: 120px;
-  height: 45px;
-  background-color: rgb(212, 235, 212);
-  color: rgb(5, 5, 5);
-  border-radius: 4px;
-  font-size: 18px;
-  transition: all .3s ease;
-}
-.save-button:hover{
-    border: 1px solid rgb(57, 158, 189);
-    background-color: #333;
-    color: #fff;
-}
 </style>
